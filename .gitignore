@@ -7,10 +7,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node
 node_modules
 dist
 dist-ssr
 *.local
+
+# Env files
+.env
+.env.*       # cualquier variante como .env.development, .env.production
+!.env.example # aseguramos que el ejemplo SÍ se suba al repo
 
 # Editor directories and files
 .vscode/*

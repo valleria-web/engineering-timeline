@@ -1,0 +1,17 @@
+
+vite-project/
+├── public/
+├── server/
+│   ├── .env.example
+│   ├── index.js
+│   └── package.json
+└── src/
+    ├── App.jsx
+    ├── App.css
+    ├── index.css
+    ├── main.jsx
+    ├── components/
+    │   └── ProfeIA.jsx
+        └──EngineeringTimeline.jsx
+    └── services/
+        └── TeacherService.js

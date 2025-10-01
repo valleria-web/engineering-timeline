@@ -1,0 +1,27 @@
+@startuml Engineering
+title Arquitectura Profe IA · YE Friedberg
+
+actor Usuario as U
+
+rectangle "Frontend (Vite/React)" {
+  component "App.jsx\n(Engineering Principles Timeline\n& Ancient Engineering)" as App
+  component "ProfeIA.jsx\n(Panel flotante TTS)" as ProfeIA
+  component "TeacherService.js\n(API Client)" as TeacherService
+}
+
+rectangle "Backend (Node/Express)" {
+  component "server/index.js\n(Proxy seguro)" as Proxy
+  database "OpenAI API\n(gpt-5-thinking)" as OpenAI
+}
+
+U --> App : Interacción con la app
+App --> ProfeIA : Renderiza panel\n(pasa principleId, ageAvg)
+ProfeIA --> TeacherService : Solicita explicación\n/ pregunta
+TeacherService --> Proxy : Llama a /api
+Proxy --> OpenAI : Envía prompt\n+ contexto
+OpenAI --> Proxy : Respuesta IA
+Proxy --> TeacherService : Devuelve resultado JSON
+TeacherService --> ProfeIA : Explicación + bullets
+ProfeIA --> U : Voz (Web Speech API)\n+ Pregunta de check-in
+
+@enduml
